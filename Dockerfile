@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
 	apt-get -y -q install \
+                default-jre \
 		libreoffice \
 		libreoffice-writer \
 		ure \
@@ -45,5 +46,8 @@ RUN chmod +x /opt/libreoffice/entrypoint.sh
 
 VOLUME ["/tmp"]
 WORKDIR "/tmp"
+
+RUN chmod ugo+rxw /tmp/
+
 
 ENTRYPOINT ["/opt/libreoffice/entrypoint.sh"]
