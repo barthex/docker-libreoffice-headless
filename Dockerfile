@@ -1,20 +1,21 @@
-FROM ubuntu:20.04
+FROM openjdk:8-jre
 
 LABEL maintainer="barthex@cocoa.email" \
 	  version.ubuntu="20.04"
 
 ENV DEBIAN_FRONTEND noninteractive
 
+ENV TIMEZONE="Europe/Warsaw"
+
 RUN apt-get update && \
+        echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true |debconf-set-selections && \
 	apt-get -y -q install \
-                default-jre \
 		libreoffice \
 		libreoffice-writer \
 		ure \
 		libreoffice-java-common \
 		libreoffice-core \
 		libreoffice-common \
-		openjdk-8-jre \
 		fonts-opensymbol \
 		hyphen-fr \
 		hyphen-de \
@@ -37,6 +38,8 @@ RUN apt-get update && \
 		fonts-tlwg-purisa && \
 	apt-get -y -q remove libreoffice-gnome && \
 	apt -y autoremove && \
+        cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo "${TIMEZONE}" > /etc/timezone && \
+	echo "${TIMEZONE}" > /etc/timezone && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN adduser --home=/opt/libreoffice --disabled-password --gecos "" --shell=/bin/bash libreoffice
