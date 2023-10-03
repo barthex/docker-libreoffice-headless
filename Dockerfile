@@ -1,7 +1,7 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
-LABEL maintainer="r.kummer@ipunkt.biz" \
-	  version.ubuntu="18.04"
+LABEL maintainer="barthex@cocoa.email" \
+	  version.ubuntu="20.04"
 
 ENV DEBIAN_FRONTEND noninteractive
 
