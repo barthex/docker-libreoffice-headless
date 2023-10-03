@@ -13,6 +13,7 @@ RUN apt-get update && \
 		libreoffice \
 		libreoffice-writer \
 		ure \
+                netcat \
                 unoconv \
 		libreoffice-java-common \
 		libreoffice-core \
