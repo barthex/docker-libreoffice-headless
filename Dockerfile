@@ -13,6 +13,7 @@ RUN apt-get update && \
 		libreoffice \
 		libreoffice-writer \
 		ure \
+                unoconv \
 		libreoffice-java-common \
 		libreoffice-core \
 		libreoffice-common \
@@ -21,6 +22,7 @@ RUN apt-get update && \
 		hyphen-de \
 		hyphen-en-us \
 		hyphen-it \
+  		hyphen-pl \
 		hyphen-ru \
 		fonts-dejavu \
 		fonts-dejavu-core \
